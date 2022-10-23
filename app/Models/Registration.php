@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Registration extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+
+    public function tournament()
+    {
+        return $this->belongsTo(Tournament::class);
+    }
+
 }
