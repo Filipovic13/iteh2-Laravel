@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserRegistrationController;
@@ -22,7 +23,26 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('users', UserController::class);
-Route::resource('registrations', RegistrationController::class);
+//Route::resource('registrations', RegistrationController::class);
 
 //Route::get('/users/{id}/registrations', [UserRegistrationController::class, 'index'])->name('users.registration.index');
 Route::resource('users.registrations', UserRegistrationController::class)->only(['index']);
+
+
+Route::post('/register',[AuthController::class,'register']);
+
+Route::post('/login', [AuthController::class, 'login']);
+
+
+Route::group(['middleware'=>['auth:sanctum'] ], function(){
+
+    Route::get('/profile', function(Request $request){
+        return auth()->user();
+    });
+
+    Route::resource('registrations', RegistrationController::class)->only(['update','store','destroy']);
+
+    Route::post('/logout', [AuthController::class, 'logout']);
+});
+
+Route::resource('registrations', RegistrationController::class)->only(['index']);
