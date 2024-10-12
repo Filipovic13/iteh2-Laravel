@@ -40,20 +40,20 @@ To set up this project locally, follow these steps:
 
 3. Set Up Environment File
 
-    Create a .env file in the root of your project to set up your environment variables manually. This file contains sensitive information, such as database credentials, that should not be included in version control.
+    Create a `.env` file in the root of your project to set up your environment variables manually. This file contains sensitive information, such as database credentials, that should not be included in version control.
 
     #### For Windows Users:
 
     - Navigate to the Project Directory
     - Click on the address bar at the top of the File Explorer window. This is where the path of the current directory is displayed.
     - Once the address bar is active (you can see a blinking cursor), simply type `cmd` and press `Enter`.This will open the Command Prompt directly in that directory.
-    - in the project directory and run next command to create file called .env:
+    - in the project directory and run next command to create file called `.env`:
 
     ```
     echo. > .env
     ```
 
-    Then, open the .env file in a text editor and add your configuration:
+    Then, open the `.env` file in a text editor and add your configuration:
 
     ```
     APP_NAME=Laravel
@@ -63,19 +63,19 @@ To set up this project locally, follow these steps:
     APP_URL=http://localhost
 
     DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1  # Database host
-    DB_PORT=3306       # Database port
-    DB_DATABASE=your_database_name  # Change to your database name
-    DB_USERNAME=your_database_username  # Change to your database username
-    DB_PASSWORD=your_database_password  # Change to your database password
+    DB_HOST=127.0.0.1                       # Database host
+    DB_PORT=3306                            # Database port
+    DB_DATABASE=your_database_name          # Change to your database name
+    DB_USERNAME=your_database_username      # Change to your database username
+    DB_PASSWORD=your_database_password      # Change to your database password
 
     MAIL_MAILER=smtp
-    MAIL_HOST=mailhog  # Change to your mail host if not using MailHog
-    MAIL_PORT=1025     # Change to your mail port if not using MailHog
+    MAIL_HOST=mailhog                       # Change to your mail host if not using MailHog
+    MAIL_PORT=1025                          # Change to your mail port if not using MailHog
     MAIL_USERNAME=null
     MAIL_PASSWORD=null
     MAIL_ENCRYPTION=null
-    MAIL_FROM_ADDRESS="hello@example.com"  # Change to your desired sender email
+    MAIL_FROM_ADDRESS="hello@example.com"   # Change to your desired sender email
     MAIL_FROM_NAME="${APP_NAME}"
 
     # Uncomment and fill these if using AWS services
@@ -120,12 +120,44 @@ To set up this project locally, follow these steps:
 
 -   **`app/Http/Config/auth.php`**: Contains authentication defaults, guards, and user providers for the application.
 
+### Models
+
+-   **`app/Models/User.php`**: Represents the user entity. Contains methods for user-related operations and relationships.
+-   **`app/Models/Registration.php`**: Represents the tournament registration entity. Contains methods to manage registrations and relationships with users and tournaments.
+-   **`app/Models/Tournament.php`**: Represents the tournament entity. Manages tournament details and relationships with registrations.
+
 ### Migrations
 
 -   **`app/Http/Migrations`**: Contains migration files that define the structure of the database.
-    -   **Users Table**: Defines users with fields for name, surname, email, country, city, and club.
-    -   **Registrations Table**: Stores tournament registration data.
-    -   **Tournaments Table**: Contains details about each tournament.
+
+    -   **Users Table**: Defines users with the following columns:
+
+        -   **`id`**: Primary key (auto-incrementing integer).
+        -   **`name`**: String (name of the user).
+        -   **`surname`**: String (surname of the user).
+        -   **`email`**: String (unique email address).
+        -   **`country`**: String (user's country).
+        -   **`city`**: String (user's city).
+        -   **`club`**: String (user's club).
+        -   **`password`**: String (hashed password).
+        -   **`created_at`**: Timestamp (automatically managed).
+        -   **`updated_at`**: Timestamp (automatically managed).
+
+    -   **Registrations Table**: Stores tournament registration data with the following columns:
+
+        -   **`id`**: Primary key (auto-incrementing integer).
+        -   **`user_id`**: Foreign key (references the `id` in the Users table).
+        -   **`tournament_id`**: Foreign key (references the `id` in the Tournaments table).
+        -   **`created_at`**: Timestamp (automatically managed).
+        -   **`updated_at`**: Timestamp (automatically managed).
+
+    -   **Tournaments Table**: Contains details about each tournament with the following columns:
+        -   **`id`**: Primary key (auto-incrementing integer).
+        -   **`name`**: String (name of the tournament).
+        -   **`date`**: Date (date of the tournament).
+        -   **`location`**: String (location of the tournament).
+        -   **`created_at`**: Timestamp (automatically managed).
+        -   **`updated_at`**: Timestamp (automatically managed).
 
 ### Factories
 
