@@ -1,66 +1,166 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Tournament Registration System
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Overview
 
-## About Laravel
+This Laravel application was developed for the Internet Technologies course, which is part of the Bachelor's degree program. The project aims to effectively demonstrate the concepts of Laravel by managing tournament registrations. It focuses on key entities such as **users**, **registrations**, and **tournaments**, all of which are stored in a MySQL database.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   **User Authentication**: Securely register and log in users.
+-   **Tournament Management**: Administer tournament details.
+-   **Registration Management**: Users can register for specific tournaments and view their registrations.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Technologies Used
 
-## Learning Laravel
+-   **PHP**: Server-side scripting language.
+-   **Laravel**: PHP framework for web applications.
+-   **MySQL**: Relational database management system.
+-   **Composer**: Dependency management tool for PHP.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Installation
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+To set up this project locally, follow these steps:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Clone the Repository
 
-## Laravel Sponsors
+    Use Git to clone the repository:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    ```bash
+    git clone https://github.com/Filipovic13/iteh2-Laravel
+    cd iteh2-Laravel
+    ```
 
-### Premium Partners
+2. Install Dependencies
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+    Ensure you have Composer installed, then run:
 
-## Contributing
+    ```
+    composer install
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+3. Set Up Environment File
 
-## Code of Conduct
+    Create a .env file in the root of your project to set up your environment variables manually. This file contains sensitive information, such as database credentials, that should not be included in version control.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    #### For Windows Users:
 
-## Security Vulnerabilities
+    - Navigate to the Project Directory
+    - Click on the address bar at the top of the File Explorer window. This is where the path of the current directory is displayed.
+    - Once the address bar is active (you can see a blinking cursor), simply type `cmd` and press `Enter`.This will open the Command Prompt directly in that directory.
+    - in the project directory and run next command to create file called .env:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    ```
+    echo. > .env
+    ```
 
-## License
+    Then, open the .env file in a text editor and add your configuration:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ```
+    APP_NAME=Laravel
+    APP_ENV=local
+    APP_KEY=base64:AJOXEzbJW2e1ld4s1pQBwZE4nnmLm7n23td1VMCoCvI=  # Generate a new key if necessary
+    APP_DEBUG=true
+    APP_URL=http://localhost
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1  # Database host
+    DB_PORT=3306       # Database port
+    DB_DATABASE=your_database_name  # Change to your database name
+    DB_USERNAME=your_database_username  # Change to your database username
+    DB_PASSWORD=your_database_password  # Change to your database password
+
+    MAIL_MAILER=smtp
+    MAIL_HOST=mailhog  # Change to your mail host if not using MailHog
+    MAIL_PORT=1025     # Change to your mail port if not using MailHog
+    MAIL_USERNAME=null
+    MAIL_PASSWORD=null
+    MAIL_ENCRYPTION=null
+    MAIL_FROM_ADDRESS="hello@example.com"  # Change to your desired sender email
+    MAIL_FROM_NAME="${APP_NAME}"
+
+    # Uncomment and fill these if using AWS services
+    # AWS_ACCESS_KEY_ID=
+    # AWS_SECRET_ACCESS_KEY=
+    # AWS_DEFAULT_REGION=us-east-1
+    # AWS_BUCKET=
+    # AWS_USE_PATH_STYLE_ENDPOINT=false
+
+    # Uncomment and fill these if using Pusher for real-time features
+    # PUSHER_APP_ID=
+    # PUSHER_APP_KEY=
+    # PUSHER_APP_SECRET=
+    # PUSHER_HOST=
+    # PUSHER_PORT=443
+    # PUSHER_SCHEME=https
+    # PUSHER_APP_CLUSTER=mt1
+
+    ```
+
+    4. Run Migrations
+
+    To set up the database structure, run:
+
+    ```
+    php artisan migrate
+    ```
+
+    5. Run the Development Server
+
+    Finally, start the server with:
+
+    ```
+    php artisan serve
+    ```
+
+    You can now access your application at `http://localhost:8000`.
+
+## Code Structure
+
+### Configuration
+
+-   **`app/Http/Config/auth.php`**: Contains authentication defaults, guards, and user providers for the application.
+
+### Migrations
+
+-   **`app/Http/Migrations`**: Contains migration files that define the structure of the database.
+    -   **Users Table**: Defines users with fields for name, surname, email, country, city, and club.
+    -   **Registrations Table**: Stores tournament registration data.
+    -   **Tournaments Table**: Contains details about each tournament.
+
+### Factories
+
+-   **`app/Http/Factories/UserFactory.php`**: Defines a factory for generating fake user data for testing.
+
+### Resources
+
+-   **`app/Http/Resources`**: Contains resource classes to transform data returned in API responses.
+    -   **RegistrationCollection**: Wraps multiple registration resources.
+    -   **RegistrationResource**: Defines the structure of a single registration response.
+    -   **TournamentCollection**: Wraps multiple tournament resources.
+    -   **TournamentResource**: Defines the structure of a single tournament response.
+    -   **UserResource**: Defines the structure of a single user response.
+
+### Authentication
+
+The application uses Laravel's built-in authentication system with guards and providers defined in **`app/Http/Config/auth.php`**.
+
+### Routes
+
+#### Public Routes
+
+-   **`POST /api/register`**: Registers a new user.
+-   **`POST /api/login`**: Authenticates a user.
+
+#### Protected Routes (requires authentication)
+
+-   **`GET /api/user`**: Returns authenticated user details.
+-   **`GET /api/users`**: Lists all users.
+-   **`GET /api/users/{id}/registrations`**: Lists all registrations for a specific user.
+-   **`GET /api/tournaments`**: Lists all tournaments.
+-   **`POST /api/logout`**: Logs out the authenticated user.
+-   **`POST /api/tournaments`**: Creates a new tournament.
+-   **`DELETE /api/tournaments/{id}`**: Deletes a tournament.
+-   **`GET /api/registrations`**: Lists all registrations.
+-   **`PUT /api/registrations/{id}`**: Updates a registration.
+-   **`POST /api/registrations`**: Creates a new registration.
+-   **`DELETE /api/registrations/{id}`**: Deletes a registration.
