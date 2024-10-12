@@ -32,7 +32,8 @@ To set up this project locally, follow these steps:
 
 2. Install Dependencies
 
-    Ensure you have Composer installed, then run:
+    Ensure you have Composer installed.
+    Composer is a dependency manager for PHP. It helps you manage the external libraries, packages, or dependencies your PHP project (such as a Laravel application) needs. Instead of manually downloading and including these libraries, Composer allows you to declare them in a file (composer.json), and it takes care of downloading and managing them.
 
     ```
     composer install
