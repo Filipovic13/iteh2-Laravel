@@ -96,7 +96,7 @@ To set up this project locally, follow these steps:
 
     ```
 
-    4. Run Migrations
+4. Run Migrations
 
     To set up the database structure, run:
 
@@ -104,7 +104,7 @@ To set up this project locally, follow these steps:
     php artisan migrate
     ```
 
-    5. Run the Development Server
+5. Run the Development Server
 
     Finally, start the server with:
 
